@@ -15,6 +15,8 @@ public interface MobConfig extends Config {
 
     String videoUrl();
 
-    String devicename();
+    String realDeviceName();
+
+    String pathToApp();
 
 }
