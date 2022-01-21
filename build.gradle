@@ -44,6 +44,8 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+
+    systemProperty("deviceHost", System.getProperty("deviceHost", ""))
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
