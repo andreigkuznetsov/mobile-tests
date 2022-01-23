@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import helpers.Browserstack;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,6 +17,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     String username = mobConfig.username();
     String password = mobConfig.password();
     String appUrl = mobConfig.appUrl();
+    String deviceName = mobConfig.deviceName();
+    String osVersion = mobConfig.osVersion();
     static String remoteUrl = mobConfig.remoteUrl();
 
     public static URL getBrowserstackUrl() {
@@ -38,8 +39,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("app", appUrl);
 
         // Specify device and os_version for testing
-        desiredCapabilities.setCapability("device", "Samsung Galaxy S9");
-        desiredCapabilities.setCapability("os_version", "8.0");
+        desiredCapabilities.setCapability("device", deviceName);
+        desiredCapabilities.setCapability("os_version", osVersion);
 
         // Set other BrowserStack capabilities
         desiredCapabilities.setCapability("project", "First Java Project");

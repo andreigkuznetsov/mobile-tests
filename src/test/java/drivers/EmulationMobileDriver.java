@@ -17,6 +17,8 @@ public class EmulationMobileDriver implements WebDriverProvider {
     public static MobConfig mobConfig = ConfigFactory.create(MobConfig.class);
 
     String pathToApp = mobConfig.pathToApp();
+    String deviceName = mobConfig.deviceName();
+    String osVersion = mobConfig.osVersion();
     static String remoteUrl = mobConfig.remoteUrl();
 
     public static URL getEmulationDeviceUrl() {
@@ -31,9 +33,9 @@ public class EmulationMobileDriver implements WebDriverProvider {
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
 
         desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("deviceName", "Pixel_3_API_30");
+        desiredCapabilities.setCapability("deviceName", deviceName);
         //desiredCapabilities.setCapability("deviceName", deviceName);
-        desiredCapabilities.setCapability("version", "11.0");
+        desiredCapabilities.setCapability("version", osVersion);
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");

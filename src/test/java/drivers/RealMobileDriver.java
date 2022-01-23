@@ -16,7 +16,8 @@ public class RealMobileDriver implements WebDriverProvider {
 
     public static MobConfig mobConfig = ConfigFactory.create(MobConfig.class);
 
-    String deviceName = mobConfig.realDeviceName();
+    String deviceName = mobConfig.deviceName();
+    String osVersion = mobConfig.osVersion();
     String pathToApp = mobConfig.pathToApp();
     static String remoteUrl = mobConfig.remoteUrl();
 
@@ -34,7 +35,7 @@ public class RealMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("platformName", "android");
 //        desiredCapabilities.setCapability("deviceName", "Pixel_4_API_30");
         desiredCapabilities.setCapability("deviceName", deviceName);
-        desiredCapabilities.setCapability("version", "11.0");
+        desiredCapabilities.setCapability("version", osVersion);
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
